@@ -20,7 +20,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING
     },
     birthdate: {
-      type: DataTypes.DATETIME
+      type: DataTypes.DATE
     },
     size: {
       type: DataTypes.INTEGER
@@ -36,11 +36,11 @@ module.exports = (sequelize, DataTypes) => {
     playRole: DataTypes.STRING,
     teamAdmin: DataTypes.BOOLEAN
   })
-  User.associate = (models) => {
-    User.hasMany(models.Team, {
-      foreignKey: 'userId',
-      as: 'userTeams'
-    })
-  }
+  // User.associate = (models) => {
+  //   User.hasMany(models.Team, {
+  //     foreignKey: 'userId',
+  //     as: 'userTeams'
+  //   })
+  // }
   return User
 }

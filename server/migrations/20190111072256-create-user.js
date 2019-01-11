@@ -2,39 +2,39 @@ module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.createTable('Users', {
       id: {
-        type: DataTypes.INTEGER,
+        type: Sequelize.INTEGER,
         unique: true,
         autoIncrement: true,
         primaryKey: true
       },
       firstName: {
-        type: DataTypes.STRING
+        type: Sequelize.STRING
       },
       lastName: {
-        type: DataTypes.STRING
+        type: Sequelize.STRING
       },
       email: {
-        type: DataTypes.STRING
+        type: Sequelize.STRING
       },
       phone: {
-        type: DataTypes.STRING
+        type: Sequelize.STRING
       },
       birthdate: {
-        type: DataTypes.DATETIME
+        type: Sequelize.DATE
       },
       size: {
-        type: DataTypes.INTEGER
+        type: Sequelize.INTEGER
       },
       weight: {
-        type: DataTypes.INTEGER
+        type: Sequelize.INTEGER
       },
       role: {
-        type: DataTypes.STRING
+        type: Sequelize.STRING
       },
-      licenceNumber: DataTypes.STRING,
-      jerseyNumber: DataTypes.STRING,
-      playRole: DataTypes.STRING,
-      teamAdmin: DataTypes.BOOLEAN,
+      licenceNumber: Sequelize.STRING,
+      jerseyNumber: Sequelize.STRING,
+      playRole: Sequelize.STRING,
+      teamAdmin: Sequelize.BOOLEAN,
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

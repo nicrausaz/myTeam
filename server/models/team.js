@@ -16,10 +16,10 @@ module.exports = (sequelize, DataTypes) => {
     mainLocation: DataTypes.STRING
   })
 
-  Team.associate = (models) => {
-    Team.belongsTo(models.User, {
-      foreignKey: 'userId'
-    })
-  }
+  // Team.associate = (models) => {
+  //   Team.belongsTo(models.User, {
+  //     foreignKey: 'userId'
+  //   })
+  // }
   return Team
 }
