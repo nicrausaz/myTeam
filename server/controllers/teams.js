@@ -1,4 +1,4 @@
-const Team = require('../models').Team
+const Team = require('../models').team
 
 module.exports = {
   create(req, res) {
@@ -11,7 +11,7 @@ module.exports = {
   },
   list(req, res) {
     return Team
-      .all()
+      .findAll()
       .then(users => res.status(200).send(users))
       .catch(error => res.status(400).send(error))
   },

@@ -1,43 +1,81 @@
-'use strict'
-module.exports = (sequelize, DataTypes) => {
-  const User = sequelize.define('User', {
-    id: {
-      type: DataTypes.INTEGER,
-      unique: true,
-      autoIncrement: true,
-      primaryKey: true
-    },
-    firstName: {
-      type: DataTypes.STRING
-    },
-    lastName: {
-      type: DataTypes.STRING
-    },
-    email: {
-      type: DataTypes.STRING
-    },
-    phone: {
-      type: DataTypes.STRING
-    },
-    birthdate: {
-      type: DataTypes.DATE
-    },
-    size: {
-      type: DataTypes.INTEGER
-    },
-    weight: {
-      type: DataTypes.INTEGER
-    },
-    role: {
-      type: DataTypes.STRING
-    },
-    licenceNumber: DataTypes.STRING,
-    jerseyNumber: DataTypes.STRING,
-    playRole: DataTypes.STRING,
-    teamAdmin: DataTypes.BOOLEAN
-  })
-  User.associate = (models) => {
+/* jshint indent: 1 */
 
-  }
-  return User
-}
+module.exports = function(sequelize, DataTypes) {
+	const User = sequelize.define('user', {
+		id: {
+			type: DataTypes.INTEGER(11),
+			allowNull: false,
+			primaryKey: true,
+			autoIncrement: true,
+			field: 'id'
+		},
+		firstname: {
+			type: DataTypes.STRING(45),
+			allowNull: false,
+			field: 'firstname'
+		},
+		lastname: {
+			type: DataTypes.STRING(45),
+			allowNull: false,
+			field: 'lastname'
+		},
+		email: {
+			type: DataTypes.STRING(45),
+			allowNull: false,
+			field: 'email'
+		},
+		phone: {
+			type: DataTypes.STRING(45),
+			allowNull: true,
+			field: 'phone'
+		},
+		birthdate: {
+			type: DataTypes.DATEONLY,
+			allowNull: true,
+			field: 'birthdate'
+		},
+		size: {
+			type: DataTypes.INTEGER(11),
+			allowNull: true,
+			field: 'size'
+		},
+		weight: {
+			type: DataTypes.INTEGER(11),
+			allowNull: true,
+			field: 'weight'
+		},
+		role: {
+			type: DataTypes.STRING(45),
+			allowNull: true,
+			field: 'role'
+		},
+		licenceNumber: {
+			type: DataTypes.STRING(45),
+			allowNull: true,
+			field: 'licence_number'
+		},
+		jerseyNumber: {
+			type: DataTypes.INTEGER(11),
+			allowNull: true,
+			field: 'jersey_number'
+		},
+		playRole: {
+			type: DataTypes.STRING(45),
+			allowNull: true,
+			field: 'play_role'
+		},
+		createdAt: {
+			type: DataTypes.DATEONLY,
+			allowNull: true,
+			field: 'createdAt'
+		},
+		updatedAt: {
+			type: DataTypes.DATEONLY,
+			allowNull: true,
+			field: 'updatedAt'
+		}
+	}, {
+		tableName: 'user'
+	});
+	return User;
+};
