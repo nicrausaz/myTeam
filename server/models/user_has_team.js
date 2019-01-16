@@ -32,10 +32,10 @@ module.exports = function(sequelize, DataTypes) {
 			allowNull: true,
 			field: 'createdAt'
 		},
-		updateAt: {
+		updatedAt: {
 			type: DataTypes.DATEONLY,
 			allowNull: true,
-			field: 'updateAt'
+			field: 'updatedAt'
 		}
 	}, {
 		tableName: 'user_has_team'

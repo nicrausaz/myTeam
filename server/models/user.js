@@ -1,7 +1,7 @@
 /* jshint indent: 1 */
 
 module.exports = function(sequelize, DataTypes) {
-	return sequelize.define('user', {
+	const User = sequelize.define('user', {
 		id: {
 			type: DataTypes.INTEGER(11),
 			allowNull: false,
@@ -77,4 +77,14 @@ module.exports = function(sequelize, DataTypes) {
 	}, {
 		tableName: 'user'
 	});
+
+	User.associate = models => {
+		User.belongsToMany(models.team, {
+			through: 'user_has_team',
+      as: 'teams',
+			foreignKey: 'user_id'
+		})
+	}
+
+	return User;
 };
