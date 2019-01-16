@@ -19,6 +19,12 @@ module.exports = (app) => {
 
   // team
   app.get('/api/team/:id', teamsController.listOne)
+  app.get('/api/team/:id/members')
+  app.get('/api/team/:id/events')
+  // app.get('/api/team/:id/event/:id')
+  // app.post('/api/team/:id/event/:id')
+  // app.patch('/api/team/:id/event/:id')
+  app.get('/api/team/:id/stats')
 
   // user & teams
   app.get('/api/user/:id/teams', usersController.listTeams)

@@ -1,4 +1,5 @@
 const User = require('../models').user
+const Team = require('../models').team
 
 module.exports = {
   create(req, res) {
@@ -21,7 +22,13 @@ module.exports = {
   },
   list(req, res) {
     return User
-      .findAll()
+      .findAll({
+        include: [{
+          model: Team,
+          as: 'teams',
+          attributes: ['id', 'fullname']
+        }],
+      })
       .then(users => res.status(200).send(users))
       .catch(error => res.status(400).send(error))
   },
