@@ -1,7 +1,7 @@
 /* jshint indent: 1 */
 
-module.exports = function (sequelize, DataTypes) {
-	const Team = sequelize.define('team', {
+module.exports = function(sequelize, DataTypes) {
+	return sequelize.define('team', {
 		id: {
 			type: DataTypes.INTEGER(11),
 			allowNull: false,
@@ -55,7 +55,6 @@ module.exports = function (sequelize, DataTypes) {
 			field: 'updatedAt'
 		}
 	}, {
-			tableName: 'team'
-		});
-	return Team
+		tableName: 'team'
+	});
 };

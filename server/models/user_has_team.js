@@ -1,35 +1,30 @@
 /* jshint indent: 1 */
 
 module.exports = function(sequelize, DataTypes) {
-	const UserTeam = sequelize.define('userTeam', {
-		id: {
+	return sequelize.define('userHasTeam', {
+		userId: {
 			type: DataTypes.INTEGER(11),
 			allowNull: false,
 			primaryKey: true,
-			autoIncrement: true,
-			field: 'id'
-		},
-		fkUserId: {
-			type: DataTypes.INTEGER(11),
-			allowNull: false,
 			references: {
 				model: 'user',
 				key: 'id'
 			},
-			field: 'fk_user_id'
+			field: 'user_id'
 		},
-		fkTeamId: {
+		teamId: {
 			type: DataTypes.INTEGER(11),
 			allowNull: false,
+			primaryKey: true,
 			references: {
 				model: 'team',
 				key: 'id'
 			},
-			field: 'fk_team_id'
+			field: 'team_id'
 		},
 		isAdmin: {
 			type: DataTypes.INTEGER(4),
-			allowNull: false,
+			allowNull: true,
 			field: 'is_admin'
 		},
 		createdAt: {
@@ -37,13 +32,12 @@ module.exports = function(sequelize, DataTypes) {
 			allowNull: true,
 			field: 'createdAt'
 		},
-		updatedAt: {
+		updateAt: {
 			type: DataTypes.DATEONLY,
 			allowNull: true,
-			field: 'updatedAt'
+			field: 'updateAt'
 		}
 	}, {
-		tableName: 'user_team'
+		tableName: 'user_has_team'
 	});
-	return UserTeam;
 };
