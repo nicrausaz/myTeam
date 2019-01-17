@@ -38,10 +38,24 @@ module.exports = {
       .then(user => res.status(200).send(user))
       .catch(error => res.status(400).send(error))
   },
-  listTeams(req, res) {
+  update(req, res) {
     return User
-      .findAll()
-      .then(users => res.status(200).send(users))
+      .update({
+        firstname: req.body.firstname,
+        lastname: req.body.lastname,
+        email: req.body.email,
+        phone: req.body.phone,
+        birthdate: req.body.birthdate,
+        size: req.body.size,
+        weight: req.body.weight,
+        role: req.body.role,
+        licenceNumber: req.body.licenceNumber,
+        jerseyNumber: req.body.jerseyNumber,
+        playRole: req.body.playRole
+      },
+        {
+          where: { id: req.params.id }
+        })
       .catch(error => res.status(400).send(error))
   }
 }

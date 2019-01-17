@@ -24,7 +24,7 @@ module.exports = function(sequelize, DataTypes) {
 		},
 		isAdmin: {
 			type: DataTypes.INTEGER(4),
-			allowNull: true,
+			allowNull: false,
 			field: 'is_admin'
 		},
 		createdAt: {

@@ -8,8 +8,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // routes
 require('./server/routes')(app);
 
-app.get('*', (req, res) => res.status(200).send({
-  message: 'Nothing to see there',
+app.get('*', (req, res) => res.status(404).send({
+  message: '404',
 }));
 
 module.exports = app;
