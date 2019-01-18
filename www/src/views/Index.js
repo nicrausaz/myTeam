@@ -1,11 +1,5 @@
-import React, { Component } from 'react';
+import Home from './definitions/Home'
+import Team from './definitions/Team'
+import Login from './definitions/Login'
 
-class Index extends Component {
-  render () {
-    return (
-      <h1>Homepage</h1>
-    )
-  }
-}
-
-export default Index
+export default { Home, Team, Login }

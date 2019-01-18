@@ -1,18 +1,19 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
-import Index from "./views/Index";
-import Team from "./views/Team";
+import Views from "./views/index";
 
-import './css/App.css';
+import { NavBar } from './components/index'
 
 class App extends Component {
   render() {
     return (
       <Router>
         <div>
-          <Route path="/" exact component={Index} />
-          <Route path="/team/" component={Team} />
+          <NavBar/>
+          <Route path="/" exact component={Views.Home} />
+          <Route path="/team" component={Views.Team} />
+          <Route path="/login" component={Views.Login} />
         </div>
       </Router>
     );
