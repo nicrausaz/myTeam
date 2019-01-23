@@ -1,14 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux'
-import { createStore } from 'redux'
-import rootReducers from './store/index';
 import 'semantic-ui-css/semantic.min.css'
 import './css/index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import configureStore from './store/configureStore';
 
-const store = createStore(rootReducers)
+const store = configureStore();
 
 const unsubscribe = store.subscribe(() => console.log(store.getState()))
 

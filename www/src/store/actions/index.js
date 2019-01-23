@@ -10,10 +10,10 @@ export function getUsers() {
     .then(res => {
       users = res.data
     })
-    return {
-      type: FETCH_USERS,
-      payload: users
-    }
+  return {
+    type: FETCH_USERS,
+    payload: users
+  }
 }
 
 export function addUser() {
