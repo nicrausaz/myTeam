@@ -50,4 +50,7 @@ module.exports = (app) => {
   // get team's event
 
   // user login
+
+  // 404
+  app.get('*', (req, res) => res.status(404).send({ message: '404' }))
 }
