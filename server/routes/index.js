@@ -1,10 +1,25 @@
+const authController = require('../controllers').auth
 const usersController = require('../controllers').users
 const teamsController = require('../controllers').teams
 
-module.exports = (app) => {
+// require('../middlewares/passport')
+
+const checkAuthentification = (req, res, next) => {
+  if (req.isAuthenticated()) {
+    next()
+  } else {
+    res.redirect('/api/login')
+  }
+}
+
+module.exports = (app, passport) => {
   // users
   app.get('/api/users', usersController.list)
   // app.post('/api/users', usersController.create)
+
+  app.get('/api/user', checkAuthentification, (req, res) => {
+    res.send(req.user);
+  })
 
   // // user
   // app.get('/api/user/:id', usersController.listOne)
@@ -51,6 +66,20 @@ module.exports = (app) => {
   // get team's event
 
   // user login
+  app.post('/api/login', passport.authenticate('login', {
+    successRedirect: '/api/user',
+    failureRedirect: '/api/login',
+    failureFlash : true
+  }));
+
+  // user logout
+  app.get('/api/logout', function (req, res) {
+    req.logout();
+    res.send(null)
+    // req.session.destroy(function (err) {
+    //   res.send({ message: 'Utilisateur déconnecté' });
+    // });
+  });
 
   // 404
   app.get('*', (req, res) => res.status(404).send({ message: '404' }))
