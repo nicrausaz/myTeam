@@ -44,6 +44,7 @@ module.exports = (app) => {
   app.get('/api/team/:id/users', teamsController.getUsers)
 
   // get team's events
+  // app.get('/api/team/:id/events', teamsController.getUsers)
 
   // get team's stats
 
