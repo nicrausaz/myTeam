@@ -1,14 +1,11 @@
-const authController = require('../controllers').auth
 const usersController = require('../controllers').users
 const teamsController = require('../controllers').teams
-
-// require('../middlewares/passport')
 
 const checkAuthentification = (req, res, next) => {
   if (req.isAuthenticated()) {
     next()
   } else {
-    res.redirect('/api/login')
+    res.status(403).send()
   }
 }
 
@@ -69,16 +66,15 @@ module.exports = (app, passport) => {
   app.post('/api/login', passport.authenticate('login', {
     successRedirect: '/api/user',
     failureRedirect: '/api/login',
-    failureFlash : true
+    failureFlash: true
   }));
 
   // user logout
   app.get('/api/logout', function (req, res) {
-    req.logout();
-    res.send(null)
-    // req.session.destroy(function (err) {
-    //   res.send({ message: 'Utilisateur déconnecté' });
-    // });
+    req.session.destroy(function (err) {
+      req.logout();
+      res.send(null)
+    });
   });
 
   // 404
