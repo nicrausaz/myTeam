@@ -2,10 +2,11 @@ const usersController = require('../controllers').users
 const teamsController = require('../controllers').teams
 
 const checkAuthentification = (req, res, next) => {
+  console.log(req.isAuthenticated())
   if (req.isAuthenticated()) {
     next()
   } else {
-    res.status(403).send()
+    res.send('err')
   }
 }
 
@@ -15,6 +16,7 @@ module.exports = (app, passport) => {
   // app.post('/api/users', usersController.create)
 
   app.get('/api/user', checkAuthentification, (req, res) => {
+    // console.log(req.user)
     res.send(req.user);
   })
 
@@ -63,14 +65,13 @@ module.exports = (app, passport) => {
   // get team's event
 
   // user login
-  app.post('/api/login', passport.authenticate('login', {
-    successRedirect: '/api/user',
-    failureRedirect: '/api/login',
-    failureFlash: true
-  }));
+  app.post('/api/login', passport.authenticate('login', { successRedirect: '/api/user' }));
+  // successRedirect: '/api/user',
+  // failureRedirect: '/api/user'
+  // }));
 
   // user logout
-  app.get('/api/logout', function (req, res) {
+  app.get('/api/logout', (req, res) => {
     req.session.destroy(function (err) {
       req.logout();
       res.send(null)

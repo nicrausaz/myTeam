@@ -8,7 +8,7 @@ const expressSession = session({
   },
   store: new FileStore(),
   secret: 'zfNxY3Cf5c',
-  resave: false,
+  resave: true,
   saveUninitialized: true
 })
 
