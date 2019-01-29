@@ -1,10 +1,11 @@
 import { combineReducers } from 'redux';
 import { items, itemsHasErrored, itemsIsLoading } from './items';
-
-// import users from './users';
+import { user, usersHasErrored, usersIsLoading } from './users';
 
 export default combineReducers({
-  // users,
+  user,
+  usersHasErrored,
+  usersIsLoading,
   items,
   itemsHasErrored,
   itemsIsLoading

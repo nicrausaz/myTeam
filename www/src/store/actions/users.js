@@ -13,25 +13,22 @@ export function login(data) {
     }
     axios(options)
     .then(function (response) {
-      dispatch(itemsIsLoading(false))
+      dispatch(userIsLoading(false))
       dispatch(userLoginSuccess(response.data))
-      console.log(response);
     })
-    .catch(function (error) {
-      dispatch(itemsHasErrored(true))
-      console.log(error.response);
-    });
+    .catch(() => dispatch(usersHasErrored(true))
+    );
   }
 }
 
-export function itemsHasErrored(bool) {
+export function usersHasErrored(bool) {
   return {
     type: 'USER_HAS_ERRORED',
     hasErrored: bool
   };
 }
 
-export function itemsIsLoading(bool) {
+export function userIsLoading(bool) {
   return {
     type: 'USER_IS_LOADING',
     isLoading: bool

@@ -40,6 +40,7 @@ class LoginForm extends Component {
             <Form.Input label='Mot de passe' type='password' placeholder='************' name="password" value={this.state.password} onChange={this.handleChange} />
           </Form.Field>
           <Button type='submit' onClick={this.handleSubmit}>Submit</Button>
+          {JSON.stringify(this.props)}
         </Form>
       </div>
     )
@@ -49,7 +50,8 @@ class LoginForm extends Component {
 const mapStateToProps = (state) => {
   return {
     hasErrored: state.itemsHasErrored,
-    isLoading: state.itemsIsLoading
+    isLoading: state.itemsIsLoading,
+    user: state.user
   };
 };
 

@@ -66,9 +66,7 @@ module.exports = (app, passport) => {
 
   // user login
   app.post('/api/login', passport.authenticate('login', { successRedirect: '/api/user' }));
-  // successRedirect: '/api/user',
-  // failureRedirect: '/api/user'
-  // }));
+  // , failureRedirect: '/api/login'
 
   // user logout
   app.get('/api/logout', (req, res) => {
