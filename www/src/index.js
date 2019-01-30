@@ -6,6 +6,11 @@ import './css/index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import configureStore from './store/configureStore';
+import Axios from 'axios';
+
+Axios.defaults.baseURL = 'http://localhost:8000/api';
+Axios.defaults.withCredentials = true;
+
 
 const store = configureStore();
 

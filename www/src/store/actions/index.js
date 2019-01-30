@@ -6,7 +6,7 @@ export const ADD_USER = 'add_user';
 export function getUsers() {
   let users = [];
   console.log('users searching')
-  axios.get(`http://localhost:8000/api/users`)
+  axios.get(`/users`)
     .then(res => {
       users = res.data
     })

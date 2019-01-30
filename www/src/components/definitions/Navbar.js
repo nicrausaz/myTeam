@@ -2,6 +2,10 @@ import React, { Component } from "react";
 import { Image, Menu } from "semantic-ui-react";
 import { withRouter } from "react-router-dom";
 
+// function Greeting() {
+//   return this
+// }
+
 class NavBar extends Component {
 
   navigateTo = route => {
@@ -19,6 +23,8 @@ class NavBar extends Component {
           <Menu.Item as="a" onClick={() => this.navigateTo('/team')}>Equipe</Menu.Item>
           <Menu.Menu position="right">
             <Menu.Item as="a" onClick={() => this.navigateTo('/login')}>Connexion</Menu.Item>
+            <Menu.Item as="a" onClick={() => this.navigateTo('/login')}>Déconnexion</Menu.Item>
+            {/* <Greeting isLoggedIn /> */}
           </Menu.Menu>
         </Menu>
       </div>

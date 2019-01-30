@@ -68,6 +68,10 @@ module.exports = (app, passport) => {
   app.post('/api/login', passport.authenticate('login', { successRedirect: '/api/user' }));
   // , failureRedirect: '/api/login'
 
+  app.get('/api/auth', (req, res) => {
+    res.send(req.isAuthenticated())
+  })
+
   // user logout
   app.get('/api/logout', (req, res) => {
     req.session.destroy(function (err) {
